@@ -3,8 +3,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StandModule = require(ReplicatedStorage:WaitForChild("StandModule"))
 
 local items = {
-	4343758,  -- ColdFyre Armor
-	28521575,  -- Slime Shield
+	-- Example Gamepasses
+	
+	169936288,  -- Amanda-Morph
+	169936329,  -- Wooly-Morph
+	169937081, -- Vip
 }
 
 for _, assetId in ipairs(items) do

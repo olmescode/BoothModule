@@ -48,8 +48,7 @@ return function(store: any)
 		Passing "true" as the second optional argument will prevent the item
 		from being displayed in the "Catalog" view. The only way for users
 		to access it would be by defining a proximity button for it (see the
-		AddProximityButton function). This is useful for scavenger-hunt style
-		hidden items.
+		AddProximityButton function).
 
 		```lua
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")

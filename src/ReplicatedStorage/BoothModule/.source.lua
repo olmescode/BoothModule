@@ -15,7 +15,6 @@ local BoothModule = {
 	claimBooth = require(script.Api.claimBooth),
 	
 	-- Server and client APIs
-	
 	remotes = script.Remotes
 	
 }

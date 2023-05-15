@@ -27,6 +27,10 @@ local function claimBooth(prompt, boothFolder)
 	if standModel:GetAttribute("Claimed") then
 		return
 	end
+	
+	-- Disable all stands promts for client
+	disableStants(boothFolder)
+	
 --[[
 	if isMainMenuGuiOpen then
 		-- Clean up old connections if it exists
@@ -44,9 +48,6 @@ local function claimBooth(prompt, boothFolder)
 
 	ShopController.addItemAsync()
 	--playerGuis:disable()
-	
-	-- Disable all stands promts
-	disableStants(boothFolder)
 	
 	-- Fire to the server
 	remotes.BoothClaim:FireServer(prompt, prompt)
