@@ -1,4 +1,3 @@
-local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local MarketplaceService = game:GetService("MarketplaceService")
 
@@ -15,7 +14,7 @@ local function loadAsset(itemInfo: types.ItemInfo): Instance
 	local asset
 	
 	if itemInfo.productType == Enum.InfoType.GamePass or itemInfo.productType == Enum.InfoType.Product then
-		local assetTemplate = BoothModule.StandPromtApp.Templates.AssetTemplate
+		local assetTemplate = BoothModule.BoothPromtApp.Templates.AssetTemplate
 		asset = assetTemplate:Clone()
 		
 		local thumbnail = asset.Thumbnail
@@ -59,9 +58,9 @@ return function(store: any)
 		@yields
 	]=]
 	local function addItemAsync(assetId: number, productType: Enum.InfoType?, hideFromCatalog: boolean?)
-		assert(RunService:IsServer(), "MerchBooth.addItemAsync must be called on the server")
-		assert(t.number(assetId), "Bad argument #1 to MerchBooth.addItemAsync: expected a number")
-		assert(t.enum(Enum.InfoType), "Bad argument #2 to MerchBooth.addItemAsync: expected a Enum.InfoType")
+		assert(RunService:IsServer(), "BoothModule.addItemAsync must be called on the server")
+		assert(t.number(assetId), "Bad argument #1 to BoothModule.addItemAsync: expected a number")
+		assert(t.enum(Enum.InfoType), "Bad argument #2 to BoothModule.addItemAsync: expected a Enum.InfoType")
 		assert(
 			t.optional(t.boolean)(hideFromCatalog),
 			"Bad argument #3 to MerchBooth.addItemAsync: expected a boolean or nil"

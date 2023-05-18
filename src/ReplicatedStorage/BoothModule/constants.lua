@@ -16,17 +16,13 @@ local constants = {
 		},
 	},
 
-	Breakpoints = {
-		Mobile = 500,
-	},
-
 	Instances = {
 		AssetsFolder = {
-			name = "MerchBoothAssets",
+			name = "BoothModuleAssets",
 			instanceType = "Folder",
 		},
-		AvatarScreenGui = {
-			name = "MerchBoothTryOnAvatarGui",
+		BoothPromtApp = {
+			name = "BoothPromtApp",
 			instanceType = "ScreenGui",
 		},
 	},
@@ -45,7 +41,7 @@ local constants = {
 	},
 
 	Tags = {
-		DummyTag = "MerchBoothDummy",
+		DummyTag = "BoothDummy",
 	},
 }
 

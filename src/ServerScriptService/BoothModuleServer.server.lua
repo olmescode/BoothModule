@@ -1,21 +1,30 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CollectionService = game:GetService("CollectionService")
 
 local BoothModule = require(ReplicatedStorage:WaitForChild("BoothModule"))
 
-local initialLoadData = BoothModule.Remotes.InitialLoadData :: RemoteEvent
+local initialLoadData = BoothModule.remotes.InitialLoadData :: RemoteEvent
 
-local function onPlayerEntered(player: Player)
-	-- Send current store state to player
-	local state = BoothModule.getItems()
+local connections = {}
 
-	-- ProximityButtons table needs to be converted from a dict to a list of tuples because keys get automatically
-	local proximityButtons = {}
-	for adornee, id in pairs(state.proximityButtons) do
-		table.insert(proximityButtons)
+local function setup()
+	local spawners = CollectionService:GetTagged("Spawners")
+	
+	for _, spawner in ipairs(spawners) do
+		local proximityButton = spawner:FindFirstChild("ProximityPrompt", true)
+		if proximityButton then
+			BoothModule.addProximityButton(proximityButton)
+		end
 	end
-
-	initialLoadData:FireClient(player, proximityButtons)
+	
+	connections[1] = Players.PlayerAdded:Connect(function(player)
+		BoothModule.onPlayerEntered(player, initialLoadData)
+	end)
+	
+	connections[2] = Players.PlayerRemoving:Connect(function(player)
+		--BoothModule.onPlayerRemoved(player)
+	end)
 end
 
-Players.PlayerAdded:Connect(onPlayerEntered)
+setup()

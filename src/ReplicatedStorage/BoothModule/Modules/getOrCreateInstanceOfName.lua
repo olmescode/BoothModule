@@ -4,7 +4,7 @@
 	return.
 	
 	This function is called when creating or obtaining the instance for the
-	AvatarScreenGui or AssetsFolder used for MerchBooth.
+	BoothPromtApp or AssetsFolder used for BoothModule.
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")

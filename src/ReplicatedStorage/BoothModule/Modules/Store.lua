@@ -18,7 +18,7 @@ end
 ]]
 function Store:dispatch(assetObject)
 	if typeof(assetObject) ~= "table" then
-		error("assetObject must be a table")
+		error("AssetObject must be a table")
 	end
 	
 	--self.assetObjects[assetObject.assetId] = assetObject.itemInfo
@@ -26,14 +26,14 @@ function Store:dispatch(assetObject)
 end
 
 --[[
-	addProximityButton(proximityButton)
+	dispatchProximityButton(proximityButton)
 	Adds a proximityButton to the Store's proximityButtons list.
 
 	@param proximityButton (userdata) - The proximity button to be added.
 ]]
 function Store:dispatchProximityButton(proximityButton)
-	if typeof(proximityButton) ~= "userdata" then
-		error("proximityButton must be a userdata")
+	if typeof(proximityButton) ~= "Instance" then
+		error("ProximityButton must be a userdata")
 	end
 	table.insert(self.proximityButtons, proximityButton)
 end
