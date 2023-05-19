@@ -50,9 +50,9 @@ return function(store: any)
 		```lua
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-		local StandModule = require(ReplicatedStorage:WaitForChild("StandModule"))
+		local BoothModule = require(ReplicatedStorage:WaitForChild("BoothModule"))
 
-		StandModule.addItemAsync(4794106130)
+		BoothModule.addItemAsync(4794106130)
 		```
 		@server
 		@yields

@@ -13,6 +13,7 @@ local function setup()
 	
 	for _, spawner in ipairs(spawners) do
 		local proximityButton = spawner:FindFirstChild("ProximityPrompt", true)
+		
 		if proximityButton then
 			BoothModule.addProximityButton(proximityButton)
 		end

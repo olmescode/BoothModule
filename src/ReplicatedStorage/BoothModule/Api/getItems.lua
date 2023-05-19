@@ -1,4 +1,6 @@
-return function(store: any)
+local RunService = game:GetService("RunService")
+
+return function(serverStore, clientStore)
 	--[=[
 		Gets all of the items registered with the Booth Shop.
 
@@ -37,7 +39,11 @@ return function(store: any)
 		@client
 	]=]
 	local function getItems()
-		return store:getState()
+		if RunService:IsServer() then
+			return serverStore:getState()
+		else
+			return clientStore:getState()
+		end
 	end
 
 	return getItems

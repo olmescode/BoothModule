@@ -8,7 +8,7 @@ return function(store: any)
 		```lua
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-		local MerchBooth = require(ReplicatedStorage:WaitForChild("MerchBooth"))
+		local BoothModule = require(ReplicatedStorage:WaitForChild("BoothModule"))
 
 		BoothModule.addItemAsync(4794106130)
 		BoothModule.addProximityButton(workspace.Item, 4794106130)
@@ -18,7 +18,7 @@ return function(store: any)
 		@server
 	]=]
 	local function addProximityButton(proximityButton)
-		assert(RunService:IsServer(), "MerchBooth.addProximityButton must be called on the server")
+		assert(RunService:IsServer(), "BoothModule.addProximityButton must be called on the server")
 		
 		store:dispatchProximityButton(proximityButton)
 	end
